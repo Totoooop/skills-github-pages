@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Salvemos al Peluche!</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: white;
+            text-align: center;
+        }
+
+        .hero {
+            background: url('https://via.placeholder.com/1920x600') no-repeat center center/cover;
+            padding: 50px 20px;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            color: #ff4c4c;
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+
+        .hero .cta-button {
+            background-color: #ffcc00;
+            color: black;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .progress {
+            margin: 30px auto;
+            width: 80%;
+        }
+
+        .progress-bar {
+            background-color: #ff4c4c;
+            width: 75%;
+            height: 30px;
+            border-radius: 15px;
+            text-align: center;
+            line-height: 30px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .social-links {
+            margin: 40px auto;
+        }
+
+        .social-links a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: white;
+            font-size: 1.5em;
+            transition: transform 0.3s;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.2);
+        }
+
+        .countdown {
+            margin: 40px auto;
+            font-size: 2em;
+            color: #ffcc00;
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>🔥 ¡ÚLTIMA OPORTUNIDAD! 🔥</h1>
+        <p>¡Solo quedan 48 horas para salvar al peluche de [Streamer]!</p>
+        <a href="https://www.makeship.com/" class="cta-button" target="_blank">Cómpralo Ahora</a>
+    </div>
+
+    <div class="progress">
+        <div class="progress-bar">75% Meta Alcanzada</div>
+    </div>
+
+    <div class="countdown">
+        ⏳ Tiempo restante: <span id="timer">48:00:00</span>
+    </div>
+
+    <div class="social-links">
+        <h2>Sigue a [Streamer]</h2>
+        <a href="https://www.youtube.com/" target="_blank">YouTube</a>
+        <a href="https://twitter.com/" target="_blank">Twitter</a>
+        <a href="https://www.twitch.tv/" target="_blank">Twitch</a>
+        <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+        <a href="https://discord.com/" target="_blank">Discord</a>
+    </div>
+
+    <div class="footer">
+        <p>© 2024 Campaña Peluche [Streamer]. Todos los derechos reservados.</p>
+    </div>
+
+    <script>
+        // Temporizador regresivo
+        function startCountdown(duration, display) {
+            let timer = duration, hours, minutes, seconds;
+            setInterval(function () {
+                hours = Math.floor(timer / 3600);
+                minutes = Math.floor((timer % 3600) / 60);
+                seconds = timer % 60;
+
+                hours = hours < 10 ? "0" + hours : hours;
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = hours + ":" + minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = 0;
+                }
+            }, 1000);
+        }
+
+        window.onload = function () {
+            let countdownDuration = 48 * 60 * 60; // 48 hours in seconds
+            let display = document.querySelector('#timer');
+            startCountdown(countdownDuration, display);
+        };
+    </script>
+</body>
+</html>
